@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #counter {
+        background-color: orange;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      #sidenav {
+        position: fixed;
+        border: 1px solid red;
+        background-color: aqua;
+        right: -200px;
+        top: 0;
+        height: 100%;
+        width: 200px;
+        transition: 1s;
+      }
+      #modal {
+        border: 1px solid lightblue;
+        background-color: aqua;
+        position: fixed;
+        left: 25%;
+        top: 100px;
+        display: none;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <button onclick="showAlert()">click me</button>
+
+    <button onclick="clickHandLer()">click me</button>
+    <div>you click button <span id="count">0</span>times</div> -->
+
+    <!-- ******************************************************************************************************** -->
+
+    <button onclick="plusHandler()">plus</button>
+    <button onclick="minusHandler()">minus</button>
+    <button onclick="resetHandler()">reset</button>
+    <div>you click button <span id="counter">0</span>times</div>
+
+    <!-- ************************************************************************************************** -->
+
+    <section id="sidenav">
+      <button onclick="hideSidenav()">X</button>
+    </section>
+    <button onclick="showSidenav()">Show sindenav</button>
+
+    <!-- **************************************************************************************************** -->
+
+    <button onclick="showModal()">login</button>
+    <div id="modal">
+      Lorem ipsum dolor section
+      <button onclick="hideModal()">X</button>
+    </div>
+
+    <script>
+      //   let sowAlert = function () {
+      //     alert("hi");
+      //   };
+
+      // let count = 0;
+      // let clickHandLer = function () {
+      //   count++;
+      //   document.getElementById("count").innerText = count;
+      // };
+
+      // ************************************************************************************************
+      let count = 0;
+      let updatecounter = function () {
+        let countElement = document.getElementById("counter");
+        if (count < 0) {
+          countElement.style.backgroundColor = "red";
+        } else if (count >= 0 && count < 10) {
+          countElement.style.backgroundColor = "orange";
+        } else {
+          countElement.style.backgroundColor = "green";
+        }
+        countElement.innerText = count;
+      };
+
+      let plusHandler = function () {
+        count++;
+        updatecounter();
+      };
+
+      let minusHandler = function () {
+        count--;
+        updatecounter();
+      };
+
+      let resetHandler = function () {
+        count = 0;
+        updatecounter();
+      };
+
+      // *************************************************************************************
+
+      let showSidenav = function () {
+        document.getElementById("sidenav").style.right = "0px";
+      };
+      let hideSidenav = function () {
+        document.getElementById("sidenav").style.right = "-200px";
+      };
+
+      // **********************************************************************************************
+
+      let showModal = function () {
+        document.getElementById("modal").style.display = "block";
+      };
+
+      let hideModal = function () {
+        document.getElementById("modal").style.display = "none";
+      };
+    </script>
+  </body>
+</html>
